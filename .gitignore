@@ -2,3 +2,5 @@
 envtext
 sqlite-autoconf-3360000.tar.gz
 .env
+alembic.ini
+alembic/*.ini
