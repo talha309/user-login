@@ -4,12 +4,12 @@ from typing import Optional
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-# Load environment variables
+
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 15))  # Convert to integer
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
 
 # Create token
 def create_access_token(data: dict, expire_delta: Optional[timedelta] = None):
