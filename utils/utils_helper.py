@@ -1,9 +1,11 @@
 import os
 import jwt
+from passlib.context import CryptContext
 from typing import Optional
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
+pwd_context = CryptContext(schemes=("bcrpt"),depreacated= "auto")
 
 load_dotenv()
 
@@ -32,3 +34,15 @@ def decode_access_token(token: str):
         print('An exception occurred')
         print(e)
         return None
+
+
+# check plain password and hash password 
+# palin acheive from user and hash achieve from data-base
+def verfiy_password (plain_password, hashed_password):
+    return pwd_context.verify(plain_password,hashed_password)
+
+
+# convert plain password into hashed password 
+
+def hash_password(password):
+    return pwd_context.hash(password)
